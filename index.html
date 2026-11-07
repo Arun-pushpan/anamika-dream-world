@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffe3f1">
+  <title>Anamika MG | Cute Dream World 💗</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #ff8fc7;
+      --light-pink: #ffe3f1;
+      --lavender: #d9c8ff;
+      --purple: #9873df;
+      --dark: #704d91;
+      --white: #fffafd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Baloo 2', cursive;
+      color: var(--dark);
+      background: linear-gradient(
+        135deg,
+        #fff0f7,
+        #f4eaff,
+        #fff5fb
+      );
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Floating background decorations */
+    .floating {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      animation: float 5s ease-in-out infinite;
+      opacity: .75;
+    }
+
+    .heart-one { top: 12%; left: 5%; font-size: 28px; }
+    .heart-two { top: 35%; right: 7%; font-size: 24px; animation-delay: 1s; }
+    .star-one { top: 65%; left: 8%; font-size: 25px; animation-delay: 2s; }
+    .star-two { top: 80%; right: 10%; font-size: 30px; animation-delay: 1.5s; }
+    .heart-three { top: 55%; right: 20%; font-size: 20px; animation-delay: 2.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    /* Navigation */
+    nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+    }
+
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 25px;
+      color: #ed75b3;
+    }
+
+    .nav-tag {
+      background: white;
+      padding: 9px 20px;
+      border-radius: 30px;
+      color: #ad7bd1;
+      box-shadow: 0 5px 20px #e9c7e8;
+      font-size: 14px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 55px 20px 80px;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .small-label {
+      display: inline-block;
+      background: white;
+      color: #d779b1;
+      border-radius: 30px;
+      padding: 8px 22px;
+      box-shadow: 0 5px 20px #f2cde5;
+      margin-bottom: 25px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 8vw, 88px);
+      line-height: 1.1;
+      color: #e77db5;
+      font-weight: 800;
+    }
+
+    h1 span {
+      font-family: 'Pacifico', cursive;
+      color: #a183e5;
+      display: block;
+      font-size: .83em;
+      margin-top: 10px;
+    }
+
+    .hero-description {
+      font-size: 19px;
+      max-width: 550px;
+      margin: 25px auto;
+      line-height: 1.7;
+      color: #9274aa;
+    }
+
+    .main-button {
+      border: none;
+      background: linear-gradient(135deg, #ff8fc7, #b28af0);
+      color: white;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 35px;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px #e7b5df;
+      transition: .3s;
+    }
+
+    .main-button:hover {
+      transform: translateY(-5px) scale(1.04);
+      box-shadow: 0 12px 25px #dfa6d9;
+    }
+
+    /* Ghost illustration */
+    .ghost-area {
+      display: flex;
+      justify-content: center;
+      margin: 35px auto 0;
+    }
+
+    .ghost {
+      width: 155px;
+      height: 175px;
+      position: relative;
+      animation: ghostFloat 3s ease-in-out infinite;
+      filter: drop-shadow(0 12px 15px #e9b9e5);
+    }
+
+    @keyframes ghostFloat {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-17px) rotate(3deg); }
+    }
+
+    .ghost-body {
+      position: absolute;
+      width: 125px;
+      height: 135px;
+      top: 30px;
+      left: 15px;
+      background: white;
+      border-radius: 65px 65px 28px 28px;
+      border: 3px solid #f8d7ed;
+    }
+
+    .ghost-body::before,
+    .ghost-body::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      width: 35px;
+      height: 30px;
+      background: white;
+      border-bottom: 3px solid #f8d7ed;
+    }
+
+    .ghost-body::before {
+      left: 5px;
+      border-radius: 0 0 50% 50%;
+    }
+
+    .ghost-body::after {
+      right: 5px;
+      border-radius: 0 0 50% 50%;
+    }
+
+    .ghost-eyes {
+      position: absolute;
+      top: 58px;
+      left: 48px;
+      display: flex;
+      gap: 30px;
+    }
+
+    .ghost-eyes span {
+      height: 10px;
+      width: 9px;
+      border-radius: 50%;
+      background: #70547e;
+    }
+
+    .ghost-mouth {
+      position: absolute;
+      top: 83px;
+      left: 71px;
+      width: 12px;
+      height: 8px;
+      border-bottom: 2px solid #70547e;
+      border-radius: 50%;
+    }
+
+    .ghost-cheek {
+      position: absolute;
+      top: 79px;
+      width: 17px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ffb8d8;
+    }
+
+    .cheek-left { left: 32px; }
+    .cheek-right { right: 32px; }
+
+    .bow {
+      position: absolute;
+      top: 3px;
+      left: 67px;
+      width: 38px;
+      height: 25px;
+      z-index: 3;
+      transform: rotate(-15deg);
+    }
+
+    .bow::before,
+    .bow::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 22px;
+      background: #ff8fc7;
+      border: 2px solid #ee73af;
+    }
+
+    .bow::before {
+      left: 0;
+      border-radius: 80% 15% 80% 15%;
+      transform: rotate(-20deg);
+    }
+
+    .bow::after {
+      right: 0;
+      border-radius: 15% 80% 15% 80%;
+      transform: rotate(20deg);
+    }
+
+    .bow-center {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #e85b9e;
+      border-radius: 50%;
+      top: 7px;
+      left: 14px;
+      z-index: 4;
+    }
+
+    /* General sections */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 75px 8%;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 5vw, 43px);
+      color: #d977b1;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: #a38ab7;
+      font-size: 17px;
+      margin-bottom: 40px;
+    }
+
+    /* Dream cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,.85);
+      border: 2px solid #fff;
+      padding: 30px 22px;
+      border-radius: 28px;
+      box-shadow: 0 10px 30px #e9d2ed;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) rotate(-1deg);
+      box-shadow: 0 15px 35px #dfbce7;
+    }
+
+    .card-icon {
+      font-size: 55px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: #a17cdb;
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #9d89aa;
+      line-height: 1.6;
+    }
+
+    /* Personal message */
+    .message-section {
+      padding-top: 30px;
+    }
+
+    .message-box {
+      max-width: 750px;
+      margin: auto;
+      background: linear-gradient(135deg, #fff, #fff0f8);
+      padding: 45px 35px;
+      border-radius: 35px;
+      border: 2px solid white;
+      box-shadow: 0 12px 35px #e8cbe9;
+    }
+
+    .message-box .big-heart {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .message-box h2 {
+      color: #e77db5;
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .message-box p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #9274aa;
+    }
+
+    .signature {
+      font-family: 'Pacifico', cursive;
+      font-size: 25px;
+      color: #b18ae3;
+      margin-top: 22px;
+    }
+
+    /* Surprise button */
+    .surprise {
+      margin-top: 28px;
+    }
+
+    .surprise-message {
+      display: none;
+      margin: 25px auto 0;
+      max-width: 550px;
+      padding: 22px;
+      border-radius: 22px;
+      background: white;
+      color: #d76da8;
+      font-size: 20px;
+      box-shadow: 0 8px 25px #eac9e8;
+      animation: appear .5s ease;
+    }
+
+    .surprise-message.show {
+      display: block;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: scale(.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 35px 15px;
+      color: #b18bbd;
+      font-size: 15px;
+    }
+
+    /* Heart particles */
+    .particle {
+      position: fixed;
+      bottom: -30px;
+      z-index: 5;
+      pointer-events: none;
+      animation: rise linear forwards;
+    }
+
+    @keyframes rise {
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      nav { padding: 17px 6%; }
+      .logo { font-size: 21px; }
+      .nav-tag { font-size: 12px; padding: 7px 14px; }
+
+      .hero {
+        min-height: auto;
+        padding: 75px 20px 65px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+        max-width: 390px;
+        gap: 18px;
+      }
+
+      .card {
+        padding: 25px 20px;
+      }
+
+      .message-box {
+        padding: 35px 22px;
+      }
+
+      .message-box h2 {
+        font-size: 27px;
+      }
+
+      .message-box p {
+        font-size: 16px;
+      }
+
+      .ghost {
+        transform: scale(.9);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating decorations -->
+  <div class="floating heart-one">💗</div>
+  <div class="floating heart-two">💕</div>
+  <div class="floating star-one">✨</div>
+  <div class="floating star-two">⭐</div>
+  <div class="floating heart-three">💖</div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Dream World ♡</div>
+    <div class="nav-tag">Made with love 💗</div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+
+      <div class="small-label">✨ A Little Magical Place ✨</div>
+
+      <h1>
+        Welcome to
+        <span>Anamika's World</span>
+      </h1>
+
+      <p class="hero-description">
+        A tiny corner of the internet filled with pink dreams,
+        magical sparkles, cute little surprises and lots of happiness.
+        This special little world is just for you! 💕
+      </p>
+
+      <button class="main-button"
+        onclick="document.getElementById('dreams').scrollIntoView({behavior:'smooth'})">
+        Explore My World 💗
+      </button>
+
+      <!-- Cute ghost -->
+      <div class="ghost-area">
+        <div class="ghost">
+          <div class="bow"><div class="bow-center"></div></div>
+          <div class="ghost-body"></div>
+          <div class="ghost-eyes">
+            <span></span><span></span>
+          </div>
+          <div class="ghost-mouth"></div>
+          <div class="ghost-cheek cheek-left"></div>
+          <div class="ghost-cheek cheek-right"></div>
+        </div>
+      </div>
+
+      <p style="color:#bd91d5; font-size:15px;">
+        Your little ghost says hiiii! 👻
+      </p>
+
+    </div>
+  </header>
+
+  <!-- Dream World Cards -->
+  <section id="dreams">
+    <h2 class="section-title">Your Little Dreamland 🌸</h2>
+    <p class="section-subtitle">
+      A world full of cute things and magical feelings.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">🦄</div>
+        <h3>Unicorn Dreams</h3>
+        <p>
+          Believe in magic, follow your dreams
+          and let your imagination sparkle.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">👑</div>
+        <h3>Princess Energy</h3>
+        <p>
+          Never forget how special you are.
+          Keep shining like the princess you are.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎀</div>
+        <h3>Pretty Little Things</h3>
+        <p>
+          Sweet moments, lovely smiles,
+          pink bows and beautiful memories.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Personal Message -->
+  <section class="message-section">
+    <div class="message-box">
+
+      <div class="big-heart">💖</div>
+
+      <h2>Stay Cute, Anamika!</h2>
+
+      <p>
+        Just a little reminder that you deserve all the
+        happiness, beautiful moments and magical surprises
+        in this world.
+        <br><br>
+        Keep smiling, keep shining and never stop being
+        your wonderful self.
+        <br><br>
+        This tiny website is made to bring a little smile
+        to your face. 🌷
+      </p>
+
+      <div class="signature">With lots of love ♡</div>
+
+      <div class="surprise">
+        <button class="main-button" onclick="showSurprise()">
+          Open Your Surprise 🎁
+        </button>
+
+        <div class="surprise-message" id="surpriseMessage">
+          🌸 Surprise, Anamika! 🌸<br>
+          You are one of a kind. Never stop sparkling! 💗👻✨
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Made with 💗 and a little bit of magic.
+    <br>
+    Especially for Anamika MG ✨
+  </footer>
+
+  <script>
+    // Surprise message
+    function showSurprise() {
+      const message = document.getElementById('surpriseMessage');
+      message.classList.toggle('show');
+
+      if (message.classList.contains('show')) {
+        createHearts(25);
+      }
+    }
+
+    // Floating heart particles
+    function createHearts(count) {
+      const symbols = ['💗', '💕', '💖', '✨', '🌸', '💜'];
+
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+
+        particle.className = 'particle';
+        particle.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
+
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.fontSize = (15 + Math.random() * 20) + 'px';
+        particle.style.animationDuration =
+          (3 + Math.random() * 4) + 's';
+
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 7000);
+      }
+    }
+
+    // Occasional floating hearts
+    setInterval(() => {
+      createHearts(2);
+    }, 2500);
+  </script>
+
+</body>
+</html>
