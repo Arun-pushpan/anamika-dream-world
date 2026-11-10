@@ -5,9 +5,14 @@ A dreamy, whimsical, and magical personal web page created with love for **Anami
 ## 🎀 Features
 - **Magical Hero Section**: Dreamy pastel gradients, floating sparkles, and animated hearts.
 - **Cute Animated Ghost**: Pure CSS floating ghost with ribbon bow and blushing cheeks.
+- **🎠 Interactive Play Zone (3 Games Included)**:
+  1. 📖 **Boo's Magical Storytime**: Interactive fairy tale adventure with multiple branches, choices, cute text-to-speech read-aloud voice, and 6 secret collectible endings with a trophy shelf!
+  2. 💄 **Boo-Boo's Beauty Studio**: Vanity salon with glowing mirror bulbs, customizable anime princess avatar (eyeshadow, glossy lipstick, twin tails, royal curls, ribbons, tiaras, dresses), plus camera flash photoshoot and downloadable princess portrait!
+  3. 🎨 **Little Artist's Drawing Room**: Touch & mouse drawing canvas with smooth pen, rainbow brush, magic sparkle glitter trails, neon glow, 12 adorable stickers/stamps (unicorn, teddy bear, teacup kitty, etc.), coloring page templates, and instant PNG export!
 - **Dreamland Cards**: Whimsical cards with cute icons and smooth hover animations.
 - **Personalized Message Box**: Warm heartfelt message and signature.
 - **Interactive Surprise Button**: Click "Open Your Surprise 🎁" to reveal a special note and shower the screen with floating heart particles!
+- **Built-in Web Audio Synthesizer**: Pure browser-synthesized chimes, fairy bells, shutter snaps, and bubble pops with global sound toggle.
 - **Fully Responsive & Accessible**: Looks adorable on mobile, tablet, and desktop screens with `prefers-reduced-motion` support.
 
 ---
