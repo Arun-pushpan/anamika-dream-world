@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/games.css">
 
   <style>
     :root {
@@ -66,17 +67,45 @@
     /* Navigation */
     nav {
       position: relative;
-      z-index: 2;
+      z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 8%;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     .logo {
       font-family: 'Pacifico', cursive;
-      font-size: 25px;
+      font-size: 26px;
       color: #ed75b3;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: #9274aa;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.25s ease;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .nav-link:hover, .nav-link.highlight {
+      background: white;
+      color: #d779b1;
+      box-shadow: 0 4px 14px #e9c7e8;
+      transform: translateY(-2px);
     }
 
     .nav-tag {
@@ -86,22 +115,23 @@
       color: #ad7bd1;
       box-shadow: 0 5px 20px #e9c7e8;
       font-size: 14px;
+      font-weight: 600;
     }
 
     /* Hero */
     .hero {
       position: relative;
       z-index: 1;
-      min-height: 78vh;
+      min-height: 75vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 55px 20px 80px;
+      padding: 50px 20px 70px;
     }
 
     .hero-content {
-      max-width: 760px;
+      max-width: 800px;
     }
 
     .small-label {
@@ -117,7 +147,7 @@
     }
 
     h1 {
-      font-size: clamp(45px, 8vw, 88px);
+      font-size: clamp(45px, 8vw, 86px);
       line-height: 1.1;
       color: #e77db5;
       font-weight: 800;
@@ -133,10 +163,18 @@
 
     .hero-description {
       font-size: 19px;
-      max-width: 550px;
+      max-width: 600px;
       margin: 25px auto;
       line-height: 1.7;
       color: #9274aa;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
     }
 
     .main-button {
@@ -146,11 +184,14 @@
       font-family: inherit;
       font-size: 17px;
       font-weight: 700;
-      padding: 14px 35px;
+      padding: 14px 34px;
       border-radius: 40px;
       cursor: pointer;
       box-shadow: 0 8px 22px #e7b5df;
       transition: .3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .main-button:hover {
@@ -158,11 +199,32 @@
       box-shadow: 0 12px 25px #dfa6d9;
     }
 
+    .secondary-button {
+      border: 2px solid #b28af0;
+      background: white;
+      color: #9873df;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px #ecd2ea;
+      transition: .3s;
+    }
+
+    .secondary-button:hover {
+      transform: translateY(-5px) scale(1.04);
+      background: #fdf5ff;
+      border-color: #ff8fc7;
+      color: #d977b1;
+    }
+
     /* Ghost illustration */
     .ghost-area {
       display: flex;
       justify-content: center;
-      margin: 35px auto 0;
+      margin: 25px auto 0;
     }
 
     .ghost {
@@ -294,19 +356,20 @@
     section {
       position: relative;
       z-index: 1;
-      padding: 75px 8%;
+      padding: 70px 8%;
       text-align: center;
     }
 
     .section-title {
-      font-size: clamp(30px, 5vw, 43px);
+      font-size: clamp(30px, 5vw, 44px);
       color: #d977b1;
       margin-bottom: 12px;
+      font-weight: 800;
     }
 
     .section-subtitle {
       color: #a38ab7;
-      font-size: 17px;
+      font-size: 18px;
       margin-bottom: 40px;
     }
 
@@ -320,7 +383,7 @@
     }
 
     .card {
-      background: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.88);
       border: 2px solid #fff;
       padding: 30px 22px;
       border-radius: 28px;
@@ -429,7 +492,7 @@
     .particle {
       position: fixed;
       bottom: -30px;
-      z-index: 5;
+      z-index: 999;
       pointer-events: none;
       animation: rise linear forwards;
     }
@@ -444,12 +507,13 @@
     /* Responsive */
     @media (max-width: 760px) {
       nav { padding: 17px 6%; }
-      .logo { font-size: 21px; }
+      .logo { font-size: 22px; }
+      .nav-links { order: 3; width: 100%; justify-content: center; }
       .nav-tag { font-size: 12px; padding: 7px 14px; }
 
       .hero {
         min-height: auto;
-        padding: 75px 20px 65px;
+        padding: 55px 20px 55px;
       }
 
       .hero-description {
@@ -457,7 +521,7 @@
       }
 
       section {
-        padding: 55px 6%;
+        padding: 50px 6%;
       }
 
       .cards {
@@ -509,6 +573,11 @@
   <!-- Navigation -->
   <nav>
     <div class="logo">Dream World ♡</div>
+    <div class="nav-links">
+      <a href="#games" class="nav-link highlight">🎮 Play Games (3)</a>
+      <a href="#dreams" class="nav-link">🌸 Dreamland</a>
+      <a href="#message" class="nav-link">💌 Special Note</a>
+    </div>
     <div class="nav-tag">Made with love 💗</div>
   </nav>
 
@@ -529,10 +598,16 @@
         This special little world is just for you! 💕
       </p>
 
-      <button class="main-button"
-        onclick="document.getElementById('dreams').scrollIntoView({behavior:'smooth'})">
-        Explore My World 💗
-      </button>
+      <div class="hero-buttons">
+        <button class="main-button"
+          onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">
+          Play 3 Cute Games 🎮
+        </button>
+        <button class="secondary-button"
+          onclick="document.getElementById('dreams').scrollIntoView({behavior:'smooth'})">
+          Explore Dreamland 🌸
+        </button>
+      </div>
 
       <!-- Cute ghost -->
       <div class="ghost-area">
@@ -548,12 +623,545 @@
         </div>
       </div>
 
-      <p style="color:#bd91d5; font-size:15px;">
+      <p style="color:#bd91d5; font-size:15px; margin-top: 15px;">
         Your little ghost says hiiii! 👻
       </p>
 
     </div>
   </header>
+
+  <!-- =========================================================================
+       MAGICAL PLAY ZONE (THE 3 INTERACTIVE GAMES)
+       ========================================================================= -->
+  <section id="games" class="games-section">
+    <div class="games-header">
+      <div class="small-label">✨ Interactive Arcade ✨</div>
+      <h2 class="section-title">Anamika's Magical Play Zone 🎠</h2>
+      <p class="section-subtitle">
+        Three wonderful, cute, and playful games crafted especially for you!
+        Pick any game below and enjoy the magic.
+      </p>
+
+      <div class="sound-toggle-bar">
+        <button id="globalSoundBtn" class="sound-btn" onclick="toggleGlobalSound()">
+          🔊 Sound: ON
+        </button>
+      </div>
+    </div>
+
+    <!-- 3 Game Selection Cards -->
+    <div class="games-nav-grid">
+
+      <!-- Game 1 Card -->
+      <div class="game-select-card active" data-game="storytime" onclick="switchGame('storytime')">
+        <div class="card-img-wrapper">
+          <img src="assets/games/storytime_illustration.jpg" alt="Boo's Magical Storytime">
+          <span class="card-tag">📖 Game 1 • Interactive Fairy Tale</span>
+        </div>
+        <div class="game-card-content">
+          <h3>Boo's Magical Storytime 📖</h3>
+          <p>An enchanting story adventure where you choose what happens next and listen with cute storytelling voice!</p>
+          <ul class="game-features-list">
+            <li>Interactive fairy tale with different story choices</li>
+            <li>Choose what happens next</li>
+            <li>Read-aloud button with a cute storytelling voice</li>
+            <li>Multiple story endings to discover</li>
+          </ul>
+          <button class="play-now-btn">Play Storytime 📖</button>
+        </div>
+      </div>
+
+      <!-- Game 2 Card -->
+      <div class="game-select-card" data-game="beauty" onclick="switchGame('beauty')">
+        <div class="card-img-wrapper">
+          <img src="assets/games/beauty_studio_illustration.jpg" alt="Boo-Boo's Beauty Studio">
+          <span class="card-tag">💄 Game 2 • Makeover Studio</span>
+        </div>
+        <div class="game-card-content">
+          <h3>Boo-Boo's Beauty Studio 💄</h3>
+          <p>Style your anime princess with sparkling eyeshadows, glossy lipsticks, twin-tails, tiaras, and reveal the final look!</p>
+          <ul class="game-features-list">
+            <li>Try different eyeshadow colours</li>
+            <li>Choose lipstick shades & gloss</li>
+            <li>Change hairstyles, colors & outfits</li>
+            <li>Reveal the final princess look & portrait</li>
+          </ul>
+          <button class="play-now-btn">Play Beauty Studio 💄</button>
+        </div>
+      </div>
+
+      <!-- Game 3 Card -->
+      <div class="game-select-card" data-game="drawing" onclick="switchGame('drawing')">
+        <div class="card-img-wrapper">
+          <img src="assets/games/drawing_room_illustration.jpg" alt="Little Artist's Drawing Room">
+          <span class="card-tag">🎨 Game 3 • Creative Canvas</span>
+        </div>
+        <div class="game-card-content">
+          <h3>Little Artist's Drawing Room 🎨</h3>
+          <p>Draw with finger or mouse, use rainbow & magic glitter brushes, stamp adorable stickers, and save your masterpiece!</p>
+          <ul class="game-features-list">
+            <li>Draw using mouse or finger</li>
+            <li>Choose different colours and brush sizes</li>
+            <li>Magic sparkle & rainbow brushes + stickers</li>
+            <li>Save her artwork as a PNG image</li>
+          </ul>
+          <button class="play-now-btn">Play Drawing Room 🎨</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Active Game Arena -->
+    <div class="game-arena" id="gameArena">
+
+      <!-- ==========================================
+           GAME 1 PANE: BOO'S MAGICAL STORYTIME 📖
+           ========================================== -->
+      <div class="game-pane active" id="pane-storytime">
+        <div class="story-container">
+
+          <div class="story-header-bar">
+            <div class="story-badge-wrap">
+              <span class="story-badge" id="storyBadge">Chapter 1: The Golden Dawn</span>
+              <button class="story-trophies-btn" id="storyTrophyBadge" onclick="window.storyEngine.toggleTrophyModal(true)">
+                🏆 0 / 6 Endings Discovered
+              </button>
+            </div>
+
+            <div class="story-controls">
+              <button id="storyTtsBtn" class="tts-btn" onclick="window.storyEngine.toggleReadAloud()">
+                🔊 Read Aloud (Cute Voice)
+              </button>
+              <button class="game-btn secondary-btn" onclick="window.storyEngine.restart()">
+                🔄 Start Over
+              </button>
+            </div>
+          </div>
+
+          <div class="story-book-frame">
+            <div class="story-scene-banner">
+              <div class="scene-icon-bubble" id="storySceneIcon">✨🏰</div>
+            </div>
+
+            <h3 class="story-title" id="storyTitle">The Secret Scroll of Starlight Castle</h3>
+
+            <div class="story-text-container" id="storyTextContainer">
+              <div id="storyText"></div>
+            </div>
+          </div>
+
+          <div class="story-choices-container" id="storyChoices">
+            <!-- Populated dynamically by storyEngine -->
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==========================================
+           GAME 2 PANE: BOO-BOO'S BEAUTY STUDIO 💄
+           ========================================== -->
+      <div class="game-pane" id="pane-beauty">
+        <div class="studio-layout">
+
+          <!-- Left Column: Illuminated Vanity Mirror & Avatar -->
+          <div class="vanity-stage">
+            <div class="vanity-mirror-frame">
+              <div class="vanity-bulbs">
+                <span class="bulb bulb-1"></span>
+                <span class="bulb bulb-2"></span>
+                <span class="bulb bulb-3"></span>
+                <span class="bulb bulb-4"></span>
+                <span class="bulb bulb-5"></span>
+                <span class="bulb bulb-6"></span>
+                <span class="bulb bulb-7"></span>
+                <span class="bulb bulb-8"></span>
+                <span class="bulb bulb-9"></span>
+                <span class="bulb bulb-10"></span>
+                <span class="bulb bulb-11"></span>
+              </div>
+              <div class="vanity-inner-glass">
+                <div id="avatarSvgContainer"></div>
+              </div>
+            </div>
+            <div class="mirror-pedestal"></div>
+
+            <div class="vanity-quick-actions">
+              <button class="game-btn secondary-btn" onclick="window.beautyStudio.randomizeLook()">
+                🎲 Surprise Glam
+              </button>
+              <button class="game-btn secondary-btn" onclick="window.beautyStudio.resetLook()">
+                🔄 Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Styling Palette Tabs -->
+          <div class="studio-palette">
+
+            <div class="studio-tabs">
+              <button class="studio-tab-btn active" data-tab="makeup">💄 Lips & Eyes</button>
+              <button class="studio-tab-btn" data-tab="hair">💇‍♀️ Hairstyles</button>
+              <button class="studio-tab-btn" data-tab="accessories">👑 Accessories</button>
+              <button class="studio-tab-btn" data-tab="outfits">👗 Outfits</button>
+            </div>
+
+            <!-- Tab 1: Lips & Eyes -->
+            <div class="studio-tab-content active" id="tab-makeup">
+
+              <!-- Eyeshadow -->
+              <div class="option-group">
+                <div class="option-title">✨ Eyeshadow Colours:</div>
+                <div class="swatches-grid">
+                  <button class="color-swatch-btn selected" style="background: #ff9ebb;" data-eyeshadow="#ff9ebb" title="Rose Gold Shimmer" onclick="window.beautyStudio.setEyeshadow('#ff9ebb')"></button>
+                  <button class="color-swatch-btn" style="background: #ff66aa;" data-eyeshadow="#ff66aa" title="Cotton Candy Pink" onclick="window.beautyStudio.setEyeshadow('#ff66aa')"></button>
+                  <button class="color-swatch-btn" style="background: #b388ff;" data-eyeshadow="#b388ff" title="Amethyst Lilac" onclick="window.beautyStudio.setEyeshadow('#b388ff')"></button>
+                  <button class="color-swatch-btn" style="background: #ffaa80;" data-eyeshadow="#ffaa80" title="Sunset Coral" onclick="window.beautyStudio.setEyeshadow('#ffaa80')"></button>
+                  <button class="color-swatch-btn" style="background: #80d8ff;" data-eyeshadow="#80d8ff" title="Sky Sparkle" onclick="window.beautyStudio.setEyeshadow('#80d8ff')"></button>
+                  <button class="color-swatch-btn" style="background: #ffd700;" data-eyeshadow="#ffd700" title="Champagne Gold" onclick="window.beautyStudio.setEyeshadow('#ffd700')"></button>
+                </div>
+              </div>
+
+              <!-- Lipstick Shades -->
+              <div class="option-group">
+                <div class="option-title">💄 Lipstick Shades:</div>
+                <div class="swatches-grid">
+                  <button class="color-swatch-btn selected" style="background: #ff5588;" data-lipstick="#ff5588" title="Cherry Blossom Pink" onclick="window.beautyStudio.setLipstick('#ff5588')"></button>
+                  <button class="color-swatch-btn" style="background: #ff70a6;" data-lipstick="#ff70a6" title="Bubblegum Glaze" onclick="window.beautyStudio.setLipstick('#ff70a6')"></button>
+                  <button class="color-swatch-btn" style="background: #e63946;" data-lipstick="#e63946" title="Ruby Princess Red" onclick="window.beautyStudio.setLipstick('#e63946')"></button>
+                  <button class="color-swatch-btn" style="background: #c72c68;" data-lipstick="#c72c68" title="Berry Sparkle" onclick="window.beautyStudio.setLipstick('#c72c68')"></button>
+                  <button class="color-swatch-btn" style="background: #ff8a65;" data-lipstick="#ff8a65" title="Peachy Coral" onclick="window.beautyStudio.setLipstick('#ff8a65')"></button>
+                  <button class="color-swatch-btn" style="background: #d47b59;" data-lipstick="#d47b59" title="Glazed Honey Nude" onclick="window.beautyStudio.setLipstick('#d47b59')"></button>
+                </div>
+              </div>
+
+              <!-- Eye Colors -->
+              <div class="option-group">
+                <div class="option-title">👁️ Anime Eye Color:</div>
+                <div class="swatches-grid">
+                  <button class="color-swatch-btn selected" style="background: #7b2cbf;" data-eyecolor="#7b2cbf" title="Violet Amethyst" onclick="window.beautyStudio.setEyeColor('#7b2cbf')"></button>
+                  <button class="color-swatch-btn" style="background: #1d3557;" data-eyecolor="#1d3557" title="Ocean Sapphire" onclick="window.beautyStudio.setEyeColor('#1d3557')"></button>
+                  <button class="color-swatch-btn" style="background: #e63946;" data-eyecolor="#e63946" title="Ruby Rose" onclick="window.beautyStudio.setEyeColor('#e63946')"></button>
+                  <button class="color-swatch-btn" style="background: #2a9d8f;" data-eyecolor="#2a9d8f" title="Emerald Mist" onclick="window.beautyStudio.setEyeColor('#2a9d8f')"></button>
+                  <button class="color-swatch-btn" style="background: #b56576;" data-eyecolor="#b56576" title="Hazel Sparkle" onclick="window.beautyStudio.setEyeColor('#b56576')"></button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Tab 2: Hairstyles & Colors -->
+            <div class="studio-tab-content" id="tab-hair">
+
+              <div class="option-group">
+                <div class="option-title">✂️ Hairstyle Models:</div>
+                <div class="style-pills-grid">
+                  <button class="style-pill-btn selected" data-hairstyle="twintails" onclick="window.beautyStudio.setHairstyle('twintails')">
+                    <span class="pill-icon">🎀</span>
+                    <span>Twin Tails</span>
+                  </button>
+                  <button class="style-pill-btn" data-hairstyle="waves" onclick="window.beautyStudio.setHairstyle('waves')">
+                    <span class="pill-icon">👑</span>
+                    <span>Princess Waves</span>
+                  </button>
+                  <button class="style-pill-btn" data-hairstyle="ponytail" onclick="window.beautyStudio.setHairstyle('ponytail')">
+                    <span class="pill-icon">✨</span>
+                    <span>High Ponytail</span>
+                  </button>
+                  <button class="style-pill-btn" data-hairstyle="spacebuns" onclick="window.beautyStudio.setHairstyle('spacebuns')">
+                    <span class="pill-icon">🍡</span>
+                    <span>Space Buns</span>
+                  </button>
+                  <button class="style-pill-btn" data-hairstyle="bob" onclick="window.beautyStudio.setHairstyle('bob')">
+                    <span class="pill-icon">🌸</span>
+                    <span>Pastel Bob</span>
+                  </button>
+                  <button class="style-pill-btn" data-hairstyle="crownbraid" onclick="window.beautyStudio.setHairstyle('crownbraid')">
+                    <span class="pill-icon">💫</span>
+                    <span>Crown Braid</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Hair Dye Colors -->
+              <div class="option-group">
+                <div class="option-title">🎨 Hair Color Shade:</div>
+                <div class="swatches-grid">
+                  <button class="color-swatch-btn selected" style="background: #f7d070;" data-haircolor="#f7d070" title="Honey Blonde" onclick="window.beautyStudio.setHairColor('#f7d070')"></button>
+                  <button class="color-swatch-btn" style="background: #ff9ebb;" data-haircolor="#ff9ebb" title="Cotton Candy Pink" onclick="window.beautyStudio.setHairColor('#ff9ebb')"></button>
+                  <button class="color-swatch-btn" style="background: #c499f6;" data-haircolor="#c499f6" title="Lavender Violet" onclick="window.beautyStudio.setHairColor('#c499f6')"></button>
+                  <button class="color-swatch-btn" style="background: #4a3728;" data-haircolor="#4a3728" title="Caramel Brunette" onclick="window.beautyStudio.setHairColor('#4a3728')"></button>
+                  <button class="color-swatch-btn" style="background: #2b2d42;" data-haircolor="#2b2d42" title="Midnight Silk" onclick="window.beautyStudio.setHairColor('#2b2d42')"></button>
+                  <button class="color-swatch-btn" style="background: #a8dadc;" data-haircolor="#a8dadc" title="Mint Pastel" onclick="window.beautyStudio.setHairColor('#a8dadc')"></button>
+                </div>
+              </div>
+
+              <!-- Streak Toggle -->
+              <div class="option-group">
+                <div class="option-title">💖 Signature Red Streak:</div>
+                <div style="display: flex; gap: 10px;">
+                  <button class="game-btn secondary-btn" onclick="window.beautyStudio.setStreak(true)">
+                    ✨ Show Red Streak
+                  </button>
+                  <button class="game-btn secondary-btn" onclick="window.beautyStudio.setStreak(false)">
+                    ✖️ Solid Color
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Tab 3: Accessories & Blushes -->
+            <div class="studio-tab-content" id="tab-accessories">
+
+              <div class="option-group">
+                <div class="option-title">🎀 Accessories & Jewelry:</div>
+                <div class="style-pills-grid">
+                  <button class="style-pill-btn selected" data-accessory="bows" onclick="window.beautyStudio.setAccessory('bows')">
+                    <span class="pill-icon">🎀</span>
+                    <span>Twin Bows</span>
+                  </button>
+                  <button class="style-pill-btn" data-accessory="tiara" onclick="window.beautyStudio.setAccessory('tiara')">
+                    <span class="pill-icon">👑</span>
+                    <span>Royal Tiara</span>
+                  </button>
+                  <button class="style-pill-btn" data-accessory="star" onclick="window.beautyStudio.setAccessory('star')">
+                    <span class="pill-icon">⭐</span>
+                    <span>Star Clip</span>
+                  </button>
+                  <button class="style-pill-btn" data-accessory="necklace" onclick="window.beautyStudio.setAccessory('necklace')">
+                    <span class="pill-icon">📿</span>
+                    <span>Pearl Necklace</span>
+                  </button>
+                  <button class="style-pill-btn" data-accessory="glasses" onclick="window.beautyStudio.setAccessory('glasses')">
+                    <span class="pill-icon">🕶️</span>
+                    <span>Heart Glasses</span>
+                  </button>
+                  <button class="style-pill-btn" data-accessory="none" onclick="window.beautyStudio.setAccessory('none')">
+                    <span class="pill-icon">✨</span>
+                    <span>Minimal</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Cheek Blush & Stamps -->
+              <div class="option-group">
+                <div class="option-title">🌸 Blushing Cheeks & Stamps:</div>
+                <div class="style-pills-grid">
+                  <button class="style-pill-btn selected" data-blush="hearts" onclick="window.beautyStudio.setBlush('hearts')">
+                    <span class="pill-icon">💖</span>
+                    <span>Heart Stamps</span>
+                  </button>
+                  <button class="style-pill-btn" data-blush="rosy" onclick="window.beautyStudio.setBlush('rosy')">
+                    <span class="pill-icon">🌸</span>
+                    <span>Rosy Glow</span>
+                  </button>
+                  <button class="style-pill-btn" data-blush="peach" onclick="window.beautyStudio.setBlush('peach')">
+                    <span class="pill-icon">🍑</span>
+                    <span>Peach Bloom</span>
+                  </button>
+                  <button class="style-pill-btn" data-blush="stars" onclick="window.beautyStudio.setBlush('stars')">
+                    <span class="pill-icon">✨</span>
+                    <span>Star Sparkles</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Tab 4: Outfits -->
+            <div class="studio-tab-content" id="tab-outfits">
+              <div class="option-group">
+                <div class="option-title">👗 Wardrobe & Dresses:</div>
+                <div class="style-pills-grid">
+                  <button class="style-pill-btn selected" data-outfit="pajamas" onclick="window.beautyStudio.setOutfit('pajamas')">
+                    <span class="pill-icon">🎀</span>
+                    <span>Pink Pajamas</span>
+                  </button>
+                  <button class="style-pill-btn" data-outfit="gown" onclick="window.beautyStudio.setOutfit('gown')">
+                    <span class="pill-icon">👑</span>
+                    <span>Princess Gown</span>
+                  </button>
+                  <button class="style-pill-btn" data-outfit="fairy" onclick="window.beautyStudio.setOutfit('fairy')">
+                    <span class="pill-icon">🧚‍♀️</span>
+                    <span>Fairy Wings</span>
+                  </button>
+                  <button class="style-pill-btn" data-outfit="idol" onclick="window.beautyStudio.setOutfit('idol')">
+                    <span class="pill-icon">🎤</span>
+                    <span>Chic Idol Blazer</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reveal Final Princess Look Action Button -->
+            <div class="reveal-look-container">
+              <button class="reveal-btn" onclick="window.beautyStudio.revealPrincessLook()">
+                📸 Reveal Final Princess Look ✨
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==========================================
+           GAME 3 PANE: LITTLE ARTIST'S DRAWING ROOM 🎨
+           ========================================== -->
+      <div class="game-pane" id="pane-drawing">
+        <div class="drawing-room-container">
+
+          <!-- Drawing Toolbar -->
+          <div class="drawing-toolbar">
+
+            <!-- Row 1: Brush Types & Color Palette -->
+            <div class="toolbar-row">
+              <div class="tools-group">
+                <button class="draw-tool-btn active" data-tool="brush">✏️ Smooth Pen</button>
+                <button class="draw-tool-btn" data-tool="sparkle">✨ Magic Sparkle</button>
+                <button class="draw-tool-btn" data-tool="rainbow">🌈 Rainbow</button>
+                <button class="draw-tool-btn" data-tool="neon">💡 Neon Glow</button>
+                <button class="draw-tool-btn" data-tool="eraser">🧽 Eraser</button>
+              </div>
+
+              <!-- Color Palette -->
+              <div class="colors-group">
+                <div class="draw-color-swatch selected" style="background:#ff4d88;" data-color="#ff4d88" title="Cherry Pink"></div>
+                <div class="draw-color-swatch" style="background:#ff70a6;" data-color="#ff70a6" title="Bubblegum"></div>
+                <div class="draw-color-swatch" style="background:#c499f6;" data-color="#c499f6" title="Lavender"></div>
+                <div class="draw-color-swatch" style="background:#70d6ff;" data-color="#70d6ff" title="Sky Blue"></div>
+                <div class="draw-color-swatch" style="background:#7bf1a8;" data-color="#7bf1a8" title="Mint Green"></div>
+                <div class="draw-color-swatch" style="background:#ffd166;" data-color="#ffd166" title="Buttercup Yellow"></div>
+                <div class="draw-color-swatch" style="background:#ffaa80;" data-color="#ffaa80" title="Soft Peach"></div>
+                <div class="draw-color-swatch" style="background:#6b4226;" data-color="#6b4226" title="Teddy Brown"></div>
+                <div class="draw-color-swatch" style="background:#2b2d42;" data-color="#2b2d42" title="Charcoal"></div>
+                <div class="draw-color-swatch" style="background:#ffffff; border: 2px solid #ddd;" data-color="#ffffff" title="White"></div>
+
+                <!-- Custom Wheel Color Picker -->
+                <div class="custom-color-picker-wrap" title="Custom Color Picker">
+                  <span class="rainbow-wheel-icon">🎨</span>
+                  <input type="color" id="drawCustomColor" value="#ff4d88">
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: Brush Size & Cute Stickers -->
+            <div class="toolbar-row">
+              <div class="size-slider-wrap">
+                <label for="brushSizeSlider">Size: <span id="brushSizeValue">10px</span></label>
+                <input type="range" id="brushSizeSlider" min="2" max="40" value="10">
+                <div class="size-presets">
+                  <button class="size-preset-btn" data-size="4">Fine</button>
+                  <button class="size-preset-btn active" data-size="10">Med</button>
+                  <button class="size-preset-btn" data-size="20">Bold</button>
+                  <button class="size-preset-btn" data-size="34">Max</button>
+                </div>
+              </div>
+
+              <!-- Stickers / Stamps Drawer -->
+              <div class="stamps-drawer">
+                <span style="font-size: 13px; font-weight: 700; color: #704d91; margin-right: 4px;">Stickers:</span>
+                <button class="stamp-btn selected" data-stamp="🦄" title="Unicorn">🦄</button>
+                <button class="stamp-btn" data-stamp="🧸" title="Teddy Bear">🧸</button>
+                <button class="stamp-btn" data-stamp="🐱" title="Teacup Kitty">🐱</button>
+                <button class="stamp-btn" data-stamp="🧁" title="Cupcake">🧁</button>
+                <button class="stamp-btn" data-stamp="🍩" title="Donut">🍩</button>
+                <button class="stamp-btn" data-stamp="🪐" title="Planet">🪐</button>
+                <button class="stamp-btn" data-stamp="🍦" title="Ice Cream">🍦</button>
+                <button class="stamp-btn" data-stamp="🍭" title="Lollipop">🍭</button>
+                <button class="stamp-btn" data-stamp="🎀" title="Ribbon Bow">🎀</button>
+                <button class="stamp-btn" data-stamp="👻" title="Boo Ghost">👻</button>
+                <button class="stamp-btn" data-stamp="💖" title="Pink Heart">💖</button>
+                <button class="stamp-btn" data-stamp="🌟" title="Star">🌟</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- The HTML5 Drawing Canvas -->
+          <div class="canvas-wrapper">
+            <canvas id="drawingCanvas"></canvas>
+          </div>
+
+          <!-- Bottom Action Bar -->
+          <div class="canvas-actions-bar">
+            <div class="undo-redo-group">
+              <button class="action-icon-btn" id="drawUndoBtn" onclick="window.drawingRoom.undo()">↩️ Undo</button>
+              <button class="action-icon-btn" id="drawRedoBtn" onclick="window.drawingRoom.redo()">↪️ Redo</button>
+              <button class="action-icon-btn" onclick="window.drawingRoom.clearCanvas(true)">🗑️ Clear Canvas</button>
+            </div>
+
+            <div class="templates-group">
+              <span>Coloring Page:</span>
+              <button class="template-btn active" data-template="blank">Blank</button>
+              <button class="template-btn" data-template="unicorn">🦄 Unicorn</button>
+              <button class="template-btn" data-template="castle">🏰 Castle</button>
+              <button class="template-btn" data-template="teddy">🧸 Teddy</button>
+            </div>
+
+            <button class="game-btn primary-btn save-art-btn" onclick="window.drawingRoom.saveArtwork()">
+              💾 Save Artwork (PNG) 💖
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       MODALS & OVERLAYS
+       ========================================== -->
+  <!-- Camera Flash Overlay -->
+  <div id="cameraFlash" class="camera-flash-overlay"></div>
+
+  <!-- Storytime Trophy Modal -->
+  <div id="storyTrophyModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="window.storyEngine.toggleTrophyModal(false)">✕</button>
+      <h3 style="color: #e77db5; font-size: 24px; text-align: center; margin-bottom: 6px;">
+        🏆 Fairy Tale Endings Shelf 🌟
+      </h3>
+      <p style="color: #9274aa; font-size: 15px; text-align: center; margin-bottom: 20px;">
+        Every path holds a magical secret! Can you discover all 6 endings?
+      </p>
+      <div class="trophy-grid" id="trophyList"></div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="game-btn primary-btn" onclick="window.storyEngine.toggleTrophyModal(false)">
+          Keep Exploring 🌸
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beauty Studio Royal Portrait Modal -->
+  <div id="princessRevealModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 460px; text-align: center;">
+      <button class="modal-close-btn" onclick="window.beautyStudio.closeRevealModal()">✕</button>
+
+      <div style="font-size: 40px; margin-bottom: 5px;">👑✨</div>
+      <h3 id="revealPrincessTitle" style="color: #e77db5; font-size: 22px; margin-bottom: 12px; font-weight: 800;">
+        Her Royal Highness: Princess Anamika ✨
+      </h3>
+
+      <div class="royal-portrait-frame">
+        <div id="revealPortraitContainer"></div>
+      </div>
+
+      <p id="revealPrincessDesc" style="color: #704d91; font-size: 15px; line-height: 1.6; margin-bottom: 22px;">
+        You look breathtaking, gorgeous, and truly magical!
+      </p>
+
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button class="game-btn primary-btn" onclick="window.beautyStudio.savePortraitPng()">
+          📥 Download Portrait (PNG) 💖
+        </button>
+        <button class="game-btn secondary-btn" onclick="window.beautyStudio.closeRevealModal()">
+          💄 Keep Styling
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Dream World Cards -->
   <section id="dreams">
@@ -595,7 +1203,7 @@
   </section>
 
   <!-- Personal Message -->
-  <section class="message-section">
+  <section class="message-section" id="message">
     <div class="message-box">
 
       <div class="big-heart">💖</div>
@@ -637,7 +1245,47 @@
     Especially for Anamika MG ✨
   </footer>
 
+  <!-- Scripts -->
+  <script src="assets/js/audio.js"></script>
+  <script src="assets/js/storytime.js"></script>
+  <script src="assets/js/beauty_studio.js"></script>
+  <script src="assets/js/drawing_room.js"></script>
+
   <script>
+    // Game switching logic
+    function switchGame(gameId) {
+      document.querySelectorAll('.game-select-card').forEach(card => {
+        card.classList.toggle('active', card.dataset.game === gameId);
+      });
+
+      document.querySelectorAll('.game-pane').forEach(pane => {
+        pane.classList.toggle('active', pane.id === `pane-${gameId}`);
+      });
+
+      if (window.soundEngine) {
+        window.soundEngine.playSparkle();
+      }
+
+      // Initialize or refresh canvas / avatar when tab opens
+      if (gameId === 'drawing' && window.drawingRoom) {
+        setTimeout(() => {
+          window.drawingRoom.resizeCanvas();
+        }, 50);
+      } else if (gameId === 'beauty' && window.beautyStudio) {
+        window.beautyStudio.renderAvatar();
+      }
+    }
+
+    // Global sound toggle
+    function toggleGlobalSound() {
+      if (!window.soundEngine) return;
+      const muted = window.soundEngine.toggleMute();
+      const btn = document.getElementById('globalSoundBtn');
+      if (btn) {
+        btn.innerHTML = muted ? '🔇 Sound: OFF' : '🔊 Sound: ON';
+      }
+    }
+
     // Surprise message
     function showSurprise() {
       const message = document.getElementById('surpriseMessage');
@@ -645,12 +1293,13 @@
 
       if (message.classList.contains('show')) {
         createHearts(25);
+        if (window.soundEngine) window.soundEngine.playFanfare();
       }
     }
 
     // Floating heart particles
     function createHearts(count) {
-      const symbols = ['💗', '💕', '💖', '✨', '🌸', '💜'];
+      const symbols = ['💗', '💕', '💖', '✨', '🌸', '💜', '🦄', '⭐'];
 
       for (let i = 0; i < count; i++) {
         const particle = document.createElement('div');
@@ -660,7 +1309,7 @@
           symbols[Math.floor(Math.random() * symbols.length)];
 
         particle.style.left = Math.random() * 100 + 'vw';
-        particle.style.fontSize = (15 + Math.random() * 20) + 'px';
+        particle.style.fontSize = (16 + Math.random() * 22) + 'px';
         particle.style.animationDuration =
           (3 + Math.random() * 4) + 's';
 
@@ -672,12 +1321,24 @@
       }
     }
 
-    // Occasional floating hearts
+    // Occasional floating hearts in background
     setInterval(() => {
       createHearts(2);
-    }, 2500);
+    }, 3000);
+
+    // Initial setup on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.storyEngine) window.storyEngine.init();
+      if (window.beautyStudio) window.beautyStudio.init();
+      if (window.drawingRoom) window.drawingRoom.init();
+
+      // Sync sound toggle button state
+      if (window.soundEngine && window.soundEngine.isMuted()) {
+        const btn = document.getElementById('globalSoundBtn');
+        if (btn) btn.innerHTML = '🔇 Sound: OFF';
+      }
+    });
   </script>
 
 </body>
 </html>
-
