@@ -52,13 +52,27 @@ class DrawingRoom {
   }
 
   resizeCanvas() {
-    const rect = this.canvas.parentElement.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-    const displayWidth = Math.min(rect.width, 820);
-    const displayHeight = Math.max(380, Math.min(window.innerHeight * 0.55, 520));
+    const parent = this.canvas.parentElement;
+    const parentWidth = parent ? parent.clientWidth : 320;
+    const rectWidth = parentWidth > 50 ? parentWidth : (window.innerWidth - 32);
 
-    this.canvas.width = displayWidth * dpr;
-    this.canvas.height = displayHeight * dpr;
+    const isMobile = window.innerWidth <= 640;
+    const isTinyPhone = window.innerWidth <= 380;
+
+    const displayWidth = Math.max(260, Math.min(rectWidth, 820));
+    // Proportional mobile height so canvas fits comfortably above controls
+    let displayHeight;
+    if (isTinyPhone) {
+      displayHeight = 240;
+    } else if (isMobile) {
+      displayHeight = Math.min(300, Math.floor(displayWidth * 0.78));
+    } else {
+      displayHeight = Math.max(360, Math.min(window.innerHeight * 0.52, 500));
+    }
+
+    const dpr = window.devicePixelRatio || 1;
+    this.canvas.width = Math.floor(displayWidth * dpr);
+    this.canvas.height = Math.floor(displayHeight * dpr);
 
     this.canvas.style.width = `${displayWidth}px`;
     this.canvas.style.height = `${displayHeight}px`;
