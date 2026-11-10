@@ -506,22 +506,32 @@
 
     /* Responsive */
     @media (max-width: 760px) {
-      nav { padding: 17px 6%; }
-      .logo { font-size: 22px; }
-      .nav-links { order: 3; width: 100%; justify-content: center; }
-      .nav-tag { font-size: 12px; padding: 7px 14px; }
+      nav { padding: 14px 4%; }
+      .logo { font-size: 21px; }
+      .nav-links { order: 3; width: 100%; justify-content: center; gap: 6px; margin-top: 6px; }
+      .nav-link { font-size: 13px; padding: 6px 11px; }
+      .nav-tag { font-size: 11px; padding: 6px 12px; }
 
       .hero {
         min-height: auto;
-        padding: 55px 20px 55px;
+        padding: 45px 15px 45px;
       }
 
       .hero-description {
-        font-size: 16px;
+        font-size: 15px;
+      }
+
+      .hero-buttons {
+        gap: 10px;
+      }
+
+      .main-button, .secondary-button {
+        font-size: 15px;
+        padding: 10px 22px;
       }
 
       section {
-        padding: 50px 6%;
+        padding: 40px 4%;
       }
 
       .cards {
@@ -531,23 +541,24 @@
       }
 
       .card {
-        padding: 25px 20px;
+        padding: 22px 18px;
       }
 
       .message-box {
-        padding: 35px 22px;
+        padding: 28px 18px;
+        border-radius: 26px;
       }
 
       .message-box h2 {
-        font-size: 27px;
+        font-size: 24px;
       }
 
       .message-box p {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .ghost {
-        transform: scale(.9);
+        transform: scale(.85);
       }
     }
 
@@ -709,6 +720,19 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- Mobile Quick Game Switcher (Visible on mobile/tablet) -->
+    <div class="mobile-game-tabs" id="mobileGameTabs">
+      <button class="mobile-tab-btn active" data-game="storytime" onclick="switchGame('storytime')">
+        📖 Storytime
+      </button>
+      <button class="mobile-tab-btn" data-game="beauty" onclick="switchGame('beauty')">
+        💄 Beauty Studio
+      </button>
+      <button class="mobile-tab-btn" data-game="drawing" onclick="switchGame('drawing')">
+        🎨 Drawing Room
+      </button>
     </div>
 
     <!-- Active Game Arena -->
@@ -1256,6 +1280,10 @@
     function switchGame(gameId) {
       document.querySelectorAll('.game-select-card').forEach(card => {
         card.classList.toggle('active', card.dataset.game === gameId);
+      });
+
+      document.querySelectorAll('.mobile-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.game === gameId);
       });
 
       document.querySelectorAll('.game-pane').forEach(pane => {
